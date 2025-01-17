@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function(){
   document.querySelector("button").addEventListener('click', getIPLocation)
 
   async function getIPLocation(){
-    const ipInput = document.querySelector("input").value
+    const ipInput = document.querySelector("input").value.trim()
     document.querySelector("input").classList.toggle("disabled")
     const enter = document.querySelector("#enter")
     enter.src = "images/icons8-loading.gif"
@@ -20,13 +20,12 @@ document.addEventListener('DOMContentLoaded', function(){
       }else{
       const stream =  await response.text()
       const data = JSON.parse(stream)
+      
       if (data.loc != undefined){
         const [lat, lng] = data.loc.split(",").map((coord) => parseFloat(coord))
         map.panTo([lat, lng]);
         marker.setLatLng([lat, lng]);
         marker.bindPopup(`${lat}, ${lng}`).openPopup();
-        document.querySelector("input").classList.toggle("disabled");
-        enter.src = "images/icon-arrow.svg";
          //injecting some values into the main html file
       
           (document.querySelector('#ip')).textContent = data.ip;
@@ -34,19 +33,15 @@ document.addEventListener('DOMContentLoaded', function(){
           (document.querySelector('#post')).textContent = data.postal;
           (document.querySelector('#zone')).textContent = data.timezone
       }else{
-        alert("There might be an issue with your IP address.")
+        alert("No location data available for this IP.")
       }
       }
      } catch (err){
-      alert(`There might be an issue with your IP address or your internet connection`);
-      console.log(err);
-      document.querySelector("input").classList.toggle("disabled");
-      enter.src = "images/icon-arrow.svg"
-     }}else{
-        alert("Please enter a valid IP address")
-        document.querySelector("input").classList.toggle("disabled")
+      console.log(`ERROR:${err} \nThere might be an issue with your IP address or your internet connection`);
+     }finally{
+       document.querySelector("input").classList.toggle("disabled");
         enter.src = "images/icon-arrow.svg"
-    }
+     }}
   }
     
 
