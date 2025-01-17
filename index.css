@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+15&display=swap');
+
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+#headText{
+    font-family: "Jersey 15", serif;
+    font-style: normal;
+  }
+
+.disabled{
+    background-color: #e0e0e0;
+    color: #b0b0b0;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+  

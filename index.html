@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <link rel="icon" type="image/png" sizes="32x32" href=""> 
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>ipTracka | 3D Maps</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="relative w-full h-[35vh] flex justify-center items-center bg-[url(images/pattern-bg-desktop.png)] bg-cover bg-no-repeat">
+      <div id="location" class="absolute flex justify-around items-center flex-col z-[9999] pt-5 mt-10 text-white w-full max-w-lg px-4">
+        <div class="text-4xl mb-4 text-center" id="headText">ipTracka</div>
+        <div class="flex justify-center items-center w-full">
+          <input class="outline-none h-[40px] w-full md:w-[35vw] p-3 rounded-l text-black" type="text" placeholder="Enter an IP address">
+          <button class="bg-black text-white flex items-center justify-center text-2xl h-[40px] w-[50px] rounded-r">
+            <img id="enter" class="w-[50%] h-[50%]" src="images/icon-arrow.svg" alt="arrow">
+          </button>
+        </div>
+        <div class="flex flex-wrap justify-around h-[50px] md:h-[50px] w-full md:w-[50vw] lg:w-[75vw] bg-white text-black mt-2 md:mt-5 lg:mt-10  p-2 rounded-lg">
+          <div class="w-[30%] md:w-[30%] lg:w-[15%] px-3">
+            <h4 class="text-[11px] text-left">IP ADDRESS</h4>
+            <h3 id="ip"></h3>
+          </div>
+          <div class="w-[1px] h-[45%] bg-black"></div>
+          <div class="w-[30%] md:w-[30%] lg:w-[15%] px-3">
+            <h4 class="text-[11px]">LOCATION</h4>
+            <h3 id="loc"></h3>
+          </div>
+          <div class="w-[1px] hidden md:block h-[45%] bg-black"></div>
+          <div class="w-[30%] md:w-[30%] lg:w-[15%] hidden md:block px-3">
+            <h4 class="text-[11px]">TIMEZONE</h4>
+            <h3 id="zone"></h3>
+          </div>
+          <div class="w-[1px] hidden lg:block h-[45%] bg-black"></div>
+          <div class="w-[30%] hidden lg:block lg:w-[15%] px-3">
+            <h4 class="text-[11px]">POSTAL CODE</h4>
+            <h3 id="reg"></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div id="map" class="w-full h-[65vh]"></div> 
+  
+    <script src="index.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+</body>
+</html>
