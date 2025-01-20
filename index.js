@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', function(){
       }
       }
      } catch (err){
+      alert("There might be an issue with this IP Address")
       console.log(`ERROR:${err} \nThere might be an issue with your IP address or your internet connection`);
      }finally{
        document.querySelector("input").classList.toggle("disabled");
