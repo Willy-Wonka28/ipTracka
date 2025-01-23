@@ -1,3 +1,14 @@
+//using vercel's pagespeed insights....help from gemini for this one
+import { injectSpeedInsights } from '@vercel/speed-insights';
+
+// Call the function to get the script
+const script = injectSpeedInsights();
+
+// Add the script to your HTML (e.g., in the <head>)
+const scriptTag = document.createElement('script');
+scriptTag.innerHTML = script;
+document.head.appendChild(scriptTag);
+
 document.addEventListener('DOMContentLoaded', function(){
 
 //think about to test cases and make correction where necessary
